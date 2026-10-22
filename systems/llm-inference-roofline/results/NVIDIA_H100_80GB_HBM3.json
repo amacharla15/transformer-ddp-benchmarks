@@ -1,0 +1,86 @@
+{
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "model": "Qwen/Qwen3-8B",
+  "measurements": [
+    {
+      "batch": 1,
+      "input_len": 512,
+      "output_len": 128,
+      "ttft_ms": 20.47,
+      "tpot_ms": 6.61,
+      "tokens_per_s": 151
+    },
+    {
+      "batch": 8,
+      "input_len": 512,
+      "output_len": 128,
+      "ttft_ms": 110.93,
+      "tpot_ms": 6.85,
+      "tokens_per_s": 1168
+    },
+    {
+      "batch": 32,
+      "input_len": 512,
+      "output_len": 128,
+      "ttft_ms": 408.99,
+      "tpot_ms": 7.48,
+      "tokens_per_s": 4275
+    },
+    {
+      "batch": 64,
+      "input_len": 512,
+      "output_len": 128,
+      "ttft_ms": 799.9,
+      "tpot_ms": 8.51,
+      "tokens_per_s": 7523
+    },
+    {
+      "batch": 128,
+      "input_len": 512,
+      "output_len": 128,
+      "ttft_ms": 1550.14,
+      "tpot_ms": 10.74,
+      "tokens_per_s": 11921
+    },
+    {
+      "batch": 1,
+      "input_len": 2048,
+      "output_len": 128,
+      "ttft_ms": 57.89,
+      "tpot_ms": 6.63,
+      "tokens_per_s": 151
+    },
+    {
+      "batch": 8,
+      "input_len": 2048,
+      "output_len": 128,
+      "ttft_ms": 413.63,
+      "tpot_ms": 7.32,
+      "tokens_per_s": 1092
+    },
+    {
+      "batch": 32,
+      "input_len": 2048,
+      "output_len": 128,
+      "ttft_ms": 1582.38,
+      "tpot_ms": 9.7,
+      "tokens_per_s": 3299
+    },
+    {
+      "batch": 64,
+      "input_len": 2048,
+      "output_len": 128,
+      "ttft_ms": 3159.81,
+      "tpot_ms": 13.19,
+      "tokens_per_s": 4853
+    },
+    {
+      "batch": 128,
+      "input_len": 2048,
+      "output_len": 128,
+      "ttft_ms": 6293.51,
+      "tpot_ms": 20.26,
+      "tokens_per_s": 6319
+    }
+  ]
+}

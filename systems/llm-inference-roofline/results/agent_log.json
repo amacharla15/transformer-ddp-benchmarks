@@ -1,0 +1,210 @@
+{
+  "conclusion": "The largest batch size safely under the 20 ms TPOT target is 112 with a measured TPOT of 18.53 ms. There is also a borderline batch at 128 with 20.18 ms TPOT. Both batches are decode memory bound.",
+  "unsupported_numbers": [],
+  "tool_calls": [
+    {
+      "tool": "predict",
+      "args": {
+        "batch": 1,
+        "input_len": 2048,
+        "output_len": 128
+      },
+      "result": {
+        "gpu": "H100-SXM",
+        "batch": 1,
+        "input_len": 2048,
+        "output_len": 128,
+        "ttft_ms": 30.02,
+        "tpot_ms": 4.61,
+        "tokens_per_s": 217,
+        "prefill_bound": "compute",
+        "decode_bound": "memory",
+        "fits_in_memory": true
+      }
+    },
+    {
+      "tool": "predict",
+      "args": {
+        "batch": 4,
+        "input_len": 2048,
+        "output_len": 128
+      },
+      "result": {
+        "gpu": "H100-SXM",
+        "batch": 4,
+        "input_len": 2048,
+        "output_len": 128,
+        "ttft_ms": 120.08,
+        "tpot_ms": 4.89,
+        "tokens_per_s": 818,
+        "prefill_bound": "compute",
+        "decode_bound": "memory",
+        "fits_in_memory": true
+      }
+    },
+    {
+      "tool": "predict",
+      "args": {
+        "batch": 16,
+        "input_len": 2048,
+        "output_len": 128
+      },
+      "result": {
+        "gpu": "H100-SXM",
+        "batch": 16,
+        "input_len": 2048,
+        "output_len": 128,
+        "ttft_ms": 480.3,
+        "tpot_ms": 6.01,
+        "tokens_per_s": 2664,
+        "prefill_bound": "compute",
+        "decode_bound": "memory",
+        "fits_in_memory": true
+      }
+    },
+    {
+      "tool": "predict",
+      "args": {
+        "batch": 64,
+        "input_len": 2048,
+        "output_len": 128
+      },
+      "result": {
+        "gpu": "H100-SXM",
+        "batch": 64,
+        "input_len": 2048,
+        "output_len": 128,
+        "ttft_ms": 1921.21,
+        "tpot_ms": 10.47,
+        "tokens_per_s": 6112,
+        "prefill_bound": "compute",
+        "decode_bound": "memory",
+        "fits_in_memory": true
+      }
+    },
+    {
+      "tool": "predict",
+      "args": {
+        "batch": 128,
+        "input_len": 2048,
+        "output_len": 128
+      },
+      "result": {
+        "gpu": "H100-SXM",
+        "batch": 128,
+        "input_len": 2048,
+        "output_len": 128,
+        "ttft_ms": 3842.42,
+        "tpot_ms": 16.42,
+        "tokens_per_s": 7794,
+        "prefill_bound": "compute",
+        "decode_bound": "memory",
+        "fits_in_memory": true
+      }
+    },
+    {
+      "tool": "predict",
+      "args": {
+        "batch": 256,
+        "input_len": 2048,
+        "output_len": 128
+      },
+      "result": {
+        "gpu": "H100-SXM",
+        "batch": 256,
+        "input_len": 2048,
+        "output_len": 128,
+        "ttft_ms": 7684.83,
+        "tpot_ms": 28.33,
+        "tokens_per_s": 9037,
+        "prefill_bound": "compute",
+        "decode_bound": "memory",
+        "fits_in_memory": false
+      }
+    },
+    {
+      "tool": "measure",
+      "args": {
+        "batch": 64,
+        "input_len": 2048,
+        "output_len": 128
+      },
+      "result": {
+        "batch": 64,
+        "input_len": 2048,
+        "output_len": 128,
+        "ttft_ms": 3154.24,
+        "tpot_ms": 13.39,
+        "tokens_per_s": 4781,
+        "predicted_tpot_ms": 10.47,
+        "predicted_ttft_ms": 1921.21,
+        "efficiency_pct": 78,
+        "decode_bound": "memory",
+        "vs_target": "under"
+      }
+    },
+    {
+      "tool": "measure",
+      "args": {
+        "batch": 128,
+        "input_len": 2048,
+        "output_len": 128
+      },
+      "result": {
+        "batch": 128,
+        "input_len": 2048,
+        "output_len": 128,
+        "ttft_ms": 6283.37,
+        "tpot_ms": 20.18,
+        "tokens_per_s": 6342,
+        "predicted_tpot_ms": 16.42,
+        "predicted_ttft_ms": 3842.42,
+        "efficiency_pct": 81,
+        "decode_bound": "memory",
+        "vs_target": "borderline"
+      }
+    },
+    {
+      "tool": "measure",
+      "args": {
+        "batch": 96,
+        "input_len": 2048,
+        "output_len": 128
+      },
+      "result": {
+        "batch": 96,
+        "input_len": 2048,
+        "output_len": 128,
+        "ttft_ms": 4719.26,
+        "tpot_ms": 16.81,
+        "tokens_per_s": 5712,
+        "predicted_tpot_ms": 13.45,
+        "predicted_ttft_ms": 2881.81,
+        "efficiency_pct": 80,
+        "decode_bound": "memory",
+        "vs_target": "under"
+      }
+    },
+    {
+      "tool": "measure",
+      "args": {
+        "batch": 112,
+        "input_len": 2048,
+        "output_len": 128
+      },
+      "result": {
+        "batch": 112,
+        "input_len": 2048,
+        "output_len": 128,
+        "ttft_ms": 5512.21,
+        "tpot_ms": 18.53,
+        "tokens_per_s": 6043,
+        "predicted_tpot_ms": 14.94,
+        "predicted_ttft_ms": 3362.11,
+        "efficiency_pct": 81,
+        "decode_bound": "memory",
+        "vs_target": "under"
+      }
+    }
+  ]
+}
