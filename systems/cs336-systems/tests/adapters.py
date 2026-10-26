@@ -5,6 +5,7 @@ import os
 import torch
 
 from cs336_systems.ddp import FlatDDP, NaiveDDP, OverlapDDP
+from cs336_systems.sharded_optimizer import ShardedOptimizer
 
 
 def get_flashattention_autograd_function_pytorch() -> type:
@@ -136,4 +137,4 @@ def get_sharded_optimizer(params, optimizer_cls: type[torch.optim.Optimizer], **
     Returns:
         Instance of sharded optimizer.
     """
-    raise NotImplementedError
+    return ShardedOptimizer(params, optimizer_cls, **kwargs)
