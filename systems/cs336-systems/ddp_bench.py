@@ -58,7 +58,7 @@ def run(args, rank, world_size, device):
         sync()
         t0 = timeit.default_timer()
         with nvtx("forward"):
-            loss = cross_entropy(model(x).view(-1, args.vocab_size), y.view(-1))
+            loss = cross_entropy(model(x).reshape(-1, args.vocab_size), y.reshape(-1))
         with nvtx("backward"):
             loss.backward()
         # wait for the compute stream only, overlapped all-reduces may still be running

@@ -69,7 +69,7 @@ def run(args, device):
             t0 = timeit.default_timer()
             with nvtx("forward"), autocast:
                 logits = model(x)
-                loss = cross_entropy(logits.view(-1, args.vocab_size), y.view(-1))
+                loss = cross_entropy(logits.reshape(-1, args.vocab_size), y.reshape(-1))
             sync()
             t1 = timeit.default_timer()
             with nvtx("backward"):
