@@ -36,3 +36,22 @@ class FlatDDP(NaiveDDP):
         flat /= dist.get_world_size()
         for p, g in zip(params, _unflatten_dense_tensors(flat, grads)):
             p.grad.copy_(g)
+
+
+class OverlapDDP(NaiveDDP):
+    def __init__(self, module):
+        super().__init__(module)
+        self.handles = []
+        for p in module.parameters():
+            if p.requires_grad:
+                p.register_post_accumulate_grad_hook(self.sync_grad)
+
+    def sync_grad(self, p):
+        # runs during backward as soon as p.grad is ready
+        p.grad /= dist.get_world_size()
+        self.handles.append(dist.all_reduce(p.grad, async_op=True))
+
+    def finish_gradient_synchronization(self):
+        for handle in self.handles:
+            handle.wait()
+        self.handles.clear()
